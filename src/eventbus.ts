@@ -14,20 +14,17 @@ export interface BusAction {
 }
 
 export class EventStream {
-  lastRunTimeMills: number = -1;
+  nextRunTimeMills: number = -1;
 
   *context() {
     while (true) {
       const task = yield
       const dropTime = task !== undefined ? task.dropTime : 0;
-      let diff = -1;
-      if (this.lastRunTimeMills > 0) {
-        diff = Date.now() - this.lastRunTimeMills;
-      }
-      if (task !== undefined && (diff === -1 || diff > dropTime)) {
+      const now = Date.now();
+      if (task !== undefined && (this.nextRunTimeMills === -1 || this.nextRunTimeMills < now)) {
         task.runner();
+        this.nextRunTimeMills = Date.now() + dropTime;
       }
-      this.lastRunTimeMills = Date.now();
     }
   }
 }
