@@ -1,0 +1,24 @@
+{
+  "name": "eventbus",
+  "version": "0.0.1",
+  "description": "event bus library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node dist/index.js",
+    "build": "tsc -p ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devdynam0507/eventbus.git"
+  },
+  "keywords": [
+    "eventbus"
+  ],
+  "author": "daeyoung nam",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/devdynam0507/eventbus/issues"
+  },
+  "homepage": "https://github.com/devdynam0507/eventbus#readme"
+}
