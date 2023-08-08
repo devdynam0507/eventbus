@@ -11,5 +11,4 @@ const useEventBus = (busName: string) => {
   };
 };
 
-
 export default useEventBus;
